@@ -1,0 +1,25 @@
+﻿{
+    "db2": {
+        "dboperatefn": "",
+        "dboperatefnparam": "",
+        "selectfn": "",
+        "selectfd": "selectfnparam",
+        "selectfnparam": [ "fd1", "fd2", "fd3", "fd4", "fd5" ],
+        "insertfn": "",
+        "insertfnparam": [ "fd2", "fd3", "fd4", "fd5" ],
+        "updatefn": "",
+        "updatefnparam": [ "fd2", "fd3", "fd4", "fd5" ],
+        "deletefn": "",
+        "field": { "fd1": [ "id", "int" ], "fd2": [ "idx", "int" ], "fd3": [ "txt", "string" ], "fd4": [ "val", "string" ], "fd5": [ "type", "string" ] },
+        "fieldvalue": [ { "fd2": "10", "fd3": "测试数据1", "fd4": "cs1", "fd5": "cstype" }, { "fd1": "14", "fd2": "11", "fd3": "测试数据5" } ],
+
+        "procedure": "",
+        "keyfield": [ "fd1" ],
+        "cond": "cond1",
+        "condstr": { "cond1": "id=@id and txt='@txt'", "cond2": "id='@id'" },
+        "condparam": { "cond1": { "fd1": "4", "fd3": "ddd" }, "cond2": { "fd1": "2223" } },
+        "dbtable": "B_dict",
+        "readonly": false,
+        "role": [ "admin" ]
+    }
+}

@@ -7,9 +7,14 @@
     "name": "Administrator",
     "email": ""
   },
-  "dependencies": {
+  "dependencies": {    
+    "connect-mongo": ">= 0.1.7",
+    "connect-multiparty": "^1.2.4",
+    "ejs": "^1.0.0",
     "express": "3.4.4",
-    "jade": "*",
+    "express-partials": "*",
+    "mongodb": ">= 0.9.9",
+    "msnodesql": "*",
     "stylus": "*"
   }
 }

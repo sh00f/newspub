@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    function get_jsonp() {
+        $.getJSON("http://127.0.0.1:1337/jsonp?callback=?",  //跨域调用
+        function(data) {
+            $('#rjsonp').val('Jsonp info : ' + data.status);
+        });
+    }
+
+    function get_json() {
+        var tbinfo = {};
+        $.ajax({
+            url : "dbinfo",
+            data:{tb:"db2"},
+            cache : false, 
+            async : false,
+            type : "POST",
+            dataType : 'json',
+            success : function (result){
+                tbinfo = $.extend(true, {}, result);
+                //alert(tbinfo.field.fd1[0]);
+            }
+        });
+        var bakdata = { tb: "db2" };
+        bakdata.data = tbinfo;
+        $.ajax({
+            url: 'getdata',
+            data: bakdata,
+            cache: false,
+            //async: false,
+            type: "POST",
+            dataType: 'json',
+            success: function (result) {
+                $('#rjson').val('Json info : ' + result[0][tbinfo.field.fd3[0]]);
+            }
+        });
+
+        //Json调用
+       /* $.getJSON("json",
+                function(data) {
+                    $('#rjson').val('Json info : ' + data.field.fd1[0]);
+                });
+                */
+    }
+    </script>
+
+    <a href="javascript:get_jsonp();">Click me for jsonp</a><br />
+    <textarea id="rjsonp" cols="50" rows="3"></textarea>
+
+    <a href="javascript:get_json();">Click me for jsonp</a><br />
+    <textarea id="rjson" cols="50" rows="3"></textarea>
+
+</body>
+</html>
